@@ -1,4 +1,8 @@
-﻿namespace DataLoad.UnitTests
+﻿using HawkerSearch.Domain;
+using NetTopologySuite.Features;
+using NetTopologySuite.Geometries;
+
+namespace DataLoad.UnitTests
 {
     internal static class TestConstants
     {
@@ -27,5 +31,16 @@
               ""coordinates"": [0, 0, 0.0]
             }
           }";
+        public static Hawker TestHawker = new Hawker
+        {
+            Id = "kml_4",
+            Name = "Serangoon Garden Market",
+            Coordinate = new Point(103.866737484645995, 1.3631571201113),
+            PostalAddress = "555945",
+            Street = "Serangoon Garden Way",
+            BlockNumber = "49A",
+            PhotoUrl = "http://www.nea.gov.sg/images/default-source/Hawker-Centres-Division/resize_1262156095817.jpg"
+        };
+        public static Feature TestFeature = new Feature();
     }
 }
