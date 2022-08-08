@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model HawkerSearch.Web.Models.SearchViewModel
+<div id="results-panel">
+    <h2>Results</h2>
+    @{
+        if (!Model.Results.Any())
+        {
+            <p>No Results</p>
+        }
+        else
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Block Number</th>
+                        <th scope="col">Street</th>
+                        <th scope="col">Postal Code</th>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @for (int i = 0; i < Model.Results.Count(); i++)
+                {
+                    var result = Model.Results.ElementAt(i);
+                    <tr>
+                        <td scope="row">@result.Name</td>
+                        <td>@result.BlockNumber</td>
+                        <td>@result.Street</td>
+                        <td>@result.PostalAddress</td>
+                        <td>@result.Latitude</td>
+                        <td>@result.Longitude</td>
+                        <td><img src="@Url.Content(@result.PhotoUrl)" alt="@result.Name" height="300px" width="500px"/> </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+</div>
