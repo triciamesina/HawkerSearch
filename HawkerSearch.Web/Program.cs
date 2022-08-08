@@ -10,7 +10,6 @@ var configuration = builder.Configuration.Get<AppSettings>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor()
     .AddTransient<ILocationService, LocationService>()
-    .AddTransient<ISessionManager, SessionManager>()
     .AddScoped<IHawkerRepository, HawkerRepository>()
     .AddDbContext<HawkerContext>(options =>
         options.UseSqlServer(configuration.ConnectionString, x => x.UseNetTopologySuite()))

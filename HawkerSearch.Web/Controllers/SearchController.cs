@@ -9,15 +9,12 @@ namespace HawkerSearch.Web.Controllers
     {
         private readonly ILogger<SearchController> _logger;
         private readonly ILocationService _locationService;
-        private readonly ISessionManager _sessionManager;
 
         public SearchController(ILogger<SearchController> logger,
-            ILocationService locationService, 
-            ISessionManager sessionManager)
+            ILocationService locationService)
         {
             _logger = logger;
             _locationService = locationService;
-            _sessionManager = sessionManager;
         }
 
         [HttpGet]
@@ -34,19 +31,6 @@ namespace HawkerSearch.Web.Controllers
             viewModel.Results = result;
             viewModel.ShowResults = true;
             return View(viewModel);
-            //_sessionManager.SetObject("result", result);
-            //return RedirectToAction("Result");
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Result()
-        {
-            var viewModel = new SearchViewModel
-            {
-                Results = _sessionManager.GetObject<IEnumerable<HawkerViewModel>>("result")
-            };
-            return View(viewModel);
-        }
-
     }
 }
