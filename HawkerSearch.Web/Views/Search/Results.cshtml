@@ -1,0 +1,22 @@
+﻿@model HawkerSearch.Web.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Hawker Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Search Results</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <p>Showing nearest Hawkers to location: [@Model.CurrentLongitude, @Model.CurrentLatitude]</p>
+        <button id="reset-button" type="button" onclick="location.href='@Url.Action("Index", "Search")'" value="Reset" class="btn btn-secondary">Reset</button>
+    </div>
+</div>
+
+@await Html.PartialAsync("_ResultListPartial", Model)
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

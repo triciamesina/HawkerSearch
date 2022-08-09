@@ -9,7 +9,8 @@ var configuration = builder.Configuration.Get<AppSettings>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor()
-    .AddTransient<ILocationService, LocationService>()
+    .AddScoped<ILocationService, LocationService>()
+    .AddScoped<ISessionManager, SessionManager>()
     .AddScoped<IHawkerRepository, HawkerRepository>()
     .AddDbContext<HawkerContext>(options =>
         options.UseSqlServer(configuration.ConnectionString, x => x.UseNetTopologySuite()))

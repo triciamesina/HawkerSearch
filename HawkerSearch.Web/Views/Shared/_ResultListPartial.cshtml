@@ -18,8 +18,8 @@
                         <th scope="col">Block Number</th>
                         <th scope="col">Street</th>
                         <th scope="col">Postal Code</th>
-                        <th scope="col">Latitude</th>
                         <th scope="col">Longitude</th>
+                        <th scope="col">Latitude</th>
                         <th scope="col">Photo</th>
                     </tr>
                 </thead>
@@ -32,8 +32,8 @@
                         <td>@result.BlockNumber</td>
                         <td>@result.Street</td>
                         <td>@result.PostalAddress</td>
-                        <td>@result.Latitude</td>
                         <td>@result.Longitude</td>
+                        <td>@result.Latitude</td>
                         <td><img src="@Url.Content(@result.PhotoUrl)" alt="@result.Name" height="300px" width="500px"/> </td>
                     </tr>
                 }

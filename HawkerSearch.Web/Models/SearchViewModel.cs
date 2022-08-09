@@ -17,6 +17,5 @@ namespace HawkerSearch.Web.Models
         public double CurrentLongitude { get; set; }
 
         public IEnumerable<HawkerViewModel> Results { get; set; }
-        public bool ShowResults { get; set; }
     }
 }
